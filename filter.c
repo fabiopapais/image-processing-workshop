@@ -5,7 +5,6 @@
 #include "helpers.h" 
 
 
-// Made by Harvard CS50's Introduction to Computer Science Staff
 int main(int argc, char *argv[])
 {
 
