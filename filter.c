@@ -4,18 +4,15 @@
 
 #include "helpers.h" 
 
+
+// Made by Harvard CS50's Introduction to Computer Science Staff
 int main(int argc, char *argv[])
 {
 
     // Define allowable filters
-    char *filters = "bgrse";
-    /*
-    b: (Mean and Gaussian) Blur
-    g: Grayscale
-    r: Reflect (y and x)
-    s: Sepia
-    e: Edge Detector
-    */
+    char *filters = "c";
+    
+    // c: Workshop challenge - more
 
     // Get filter flag and check validity
     char filter = getopt(argc, argv, filters);
@@ -107,28 +104,8 @@ int main(int argc, char *argv[])
     // Filter image
     switch (filter)
     {
-        // Blur
-        case 'b':
-            blur(height, width, image);
-            break;
-
-        // Grayscale
-        case 'g':
-            grayscale(height, width, image);
-            break;
-
-        // Reflection
-        case 'r':
-            reflect(height, width, image);
-            break;
-
-        // Sepia
-        case 's':
-            sepia(height, width, image);
-            break;
-
-        case 'e':
-            edge(height, width, image);
+        case 'c':
+            challenge(height, width, image);
             break;
     }
 
