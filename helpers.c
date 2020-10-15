@@ -56,6 +56,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
   }
 
   int axis = 2;
+  printf("============REFLECT OPTIONS=============\n");
   while (axis != 0 && axis != 1)
   {
     printf("Axis of reflection: (0 = X / 1 = Y): ");
@@ -103,6 +104,8 @@ int generate_blur_kernel(size_t kernel_size, double kernel[kernel_size][kernel_s
     scanf("%d", &type);
   }
 
+  printf("\nLoading...\n");
+
   if (type == 0)
   {
     // Mean blur (filling all the positions with 1)
@@ -146,17 +149,6 @@ int generate_blur_kernel(size_t kernel_size, double kernel[kernel_size][kernel_s
         kernel[i][j] = (kernel[i][j] / sum) + 1;
       }
     }
-  }
-
-  // Printing the kernel
-  printf("Your kernel:\n");
-  for (int y = 0; y < kernel_size; y++)
-  {
-    for (int x = 0; x < kernel_size; x++)
-    {
-      printf("%f  ", kernel[y][x]);
-    }
-    printf("\n");
   }
   return 0;
 }
@@ -334,7 +326,7 @@ void edge(int height, int width, RGBTRIPLE image[height][width], RGBTRIPLE tmp_i
   tmp_image[y][x].rgbtBlue = round(sqrt((gx_rgbtBlue * gx_rgbtBlue) + (gy_rgbtBlue * gy_rgbtBlue)));
 }
 
-// Workshop challenge - more
+// Final challenge!
 void challenge(int height, int width, RGBTRIPLE image[height][width])
 {
   RGBTRIPLE tmp_image[height][width];
@@ -346,6 +338,7 @@ void challenge(int height, int width, RGBTRIPLE image[height][width])
 
   // Getting the kernel_size correctly
   int kernel_size = 2;
+  printf("\n============BLUR OPTIONS=============\n");
   while (kernel_size % 2 == 0 || kernel_size == 2)
   {
     printf("Kernel size: (only odd numbers): ");
