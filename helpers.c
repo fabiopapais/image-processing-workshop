@@ -45,14 +45,24 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
     // width loop
     for (int x = 0; x < width; x++)
     {
+      int brightness = 60;
+      int newRed = image[y][x].rgbtRed + brightness;
+      int newGreen = image[y][x].rgbtGreen + brightness;
+      int newBlue = image[y][x].rgbtBlue + brightness;
 
-      // getting average between RGB channels
-      float avrg = (image[y][x].rgbtRed + image[y][x].rgbtGreen + image[y][x].rgbtBlue) / 3;
+      if (newRed > 255) {
+        newRed = 255;
+      }
+      if (newGreen > 255) {
+        newGreen = 255;
+      }
+      if (newBlue > 255) {
+        newBlue = 255;
+      }
 
-      // Assigning average value to all RGB channels
-      image[y][x].rgbtRed = round(avrg);
-      image[y][x].rgbtGreen = round(avrg);
-      image[y][x].rgbtBlue = round(avrg);
+      image[y][x].rgbtRed = newRed;
+      image[y][x].rgbtGreen = newGreen;
+      image[y][x].rgbtBlue = newBlue;
     }
   }
 }
